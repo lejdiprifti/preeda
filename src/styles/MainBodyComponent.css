@@ -1,3 +1,42 @@
 #mainBodyContainer {
-    width: 75%;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    min-height: 500px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 300px) {
+    #mainBodyContainer {
+        width: 100%;
+        overflow-x: hidden;
+        display: flex;
+        min-height: 500px;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #mainBodyContainer img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1700px) {
+    #mainBodyContainer img {
+        width: 50%;
+    }
+}
+
+@media (min-width: 960px) {
+    #mainBodyContainer {
+        width: 100%;
+        overflow-x: hidden;
+        display: flex;
+        min-height: 500px;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #mainBodyContainer img {
+        width: 50%;
+    }
 }

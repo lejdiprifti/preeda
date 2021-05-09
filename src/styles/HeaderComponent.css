@@ -1,4 +1,4 @@
-img {
+#container img {
     width: 100%;
     position: relative;
     display: inline-flex;
@@ -19,7 +19,6 @@ img {
     }
 }
 .imageContanier {
-    min-width: 100%;
     display: flex;
     flex-direction: row;
     animation-duration: 10s;
@@ -33,4 +32,23 @@ img {
     overflow-x: hidden;
     flex-direction: row;
     display: flex;
+}
+
+
+@media (min-width: 300px) {
+    .imageContanier {
+        min-width: 300%;
+   }
+}
+
+@media (min-width: 1700px) {
+   .imageContanier {
+        min-width: 100%;
+   }
+}
+
+@media (min-width: 960px) {
+    .imageContanier{
+        min-width: 100%;
+    }
 }
