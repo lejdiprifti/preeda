@@ -1,42 +1,39 @@
 #mainBodyContainer {
-    width: 100%;
+    flex: 1;
     overflow-x: hidden;
     display: flex;
-    min-height: 500px;
     flex-direction: column;
     justify-content: center;
 }
 
 @media (min-width: 300px) {
     #mainBodyContainer {
-        width: 100%;
+        flex:1;
         overflow-x: hidden;
         display: flex;
-        min-height: 500px;
         flex-direction: column;
         justify-content: center;
     }
     #mainBodyContainer img {
-        width: 100%;
+        width: 28em;
     }
 }
 
 @media (min-width: 1700px) {
     #mainBodyContainer img {
-        width: 50%;
+        width: 45em;
     }
 }
 
 @media (min-width: 960px) {
     #mainBodyContainer {
-        width: 100%;
+        flex: 1;
         overflow-x: hidden;
         display: flex;
-        min-height: 500px;
         flex-direction: column;
         justify-content: center;
     }
     #mainBodyContainer img {
-        width: 50%;
+        width: 45em;
     }
 }
