@@ -1,6 +1,5 @@
 import React from "react";
 import '../styles/MainBodyComponent.css';
-import { FinderWindowComponent } from "./FinderWindowComponent";
 
 export const MainBodyComponent:React.FC = (): JSX.Element => {
     return (
@@ -8,7 +7,6 @@ export const MainBodyComponent:React.FC = (): JSX.Element => {
             <div id="mainBodyContainer">
                 <img src='address.png' alt="address"/>
             </div>
-            <FinderWindowComponent/>
         </React.Fragment>
     )
 }
