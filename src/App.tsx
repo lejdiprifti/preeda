@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import { FooterComponent } from './components/FooterComponent';
-import { HeaderComponent } from './components/HeaderComponent';
-import { MainBodyComponent } from './components/MainBodyComponent';
+import { FooterComponent } from './components/footer/FooterComponent';
+import { HeaderComponent } from './components/header/HeaderComponent';
+import { MainBodyComponent } from './components/main-body/MainBodyComponent';
 
 function App() {
   return (
     <React.Fragment>
-        <HeaderComponent/>
-        <MainBodyComponent/>
-        <FooterComponent/>
+      <HeaderComponent />
+      <MainBodyComponent />
+      <FooterComponent />
     </React.Fragment>
   );
 }

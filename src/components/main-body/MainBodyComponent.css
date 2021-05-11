@@ -1,0 +1,40 @@
+#mainBodyContainer {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+@media (min-width: 300px) {
+  #mainBodyContainer {
+    flex: 1;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #mainBodyContainer .addressImg {
+    width: 28em;
+  }
+}
+
+@media (min-width: 1700px) {
+  #mainBodyContainer .addressImg {
+    width: 45em;
+  }
+}
+
+@media (min-width: 960px) {
+  #mainBodyContainer {
+    flex: 1;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #mainBodyContainer .addressImg {
+    width: 45em;
+  }
+}

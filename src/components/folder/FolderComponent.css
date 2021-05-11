@@ -1,0 +1,24 @@
+.desktop-item .title {
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "SF Pro";
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 2px #fff, 0 0 7px #fff, 0 0 8px hsl(0deg 0% 100% / 30%);
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.desktop-item .icon {
+  display: block;
+  margin: 0 auto;
+  transition: opacity 70ms ease-out;
+}
+
+.desktop-item {
+  width: 5em;
+}
+
+#folderImage {
+  width: 5em;
+}
