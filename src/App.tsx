@@ -1,15 +1,14 @@
+import { ThemeProvider } from '@material-ui/styles';
 import React from 'react';
-import './App.css';
-import { FooterComponent } from './components/FooterComponent';
-import { HeaderComponent } from './components/HeaderComponent';
-import { MainBodyComponent } from './components/MainBodyComponent';
+import { PreedaNavigation } from './navigation/PreedaNavigation';
+import { preedaTheme } from './theme/PreedaTheme';
 
-function App() {
+const App: React.FC = (): JSX.Element => {
   return (
     <React.Fragment>
-        <HeaderComponent/>
-        <MainBodyComponent/>
-        <FooterComponent/>
+      <ThemeProvider theme={preedaTheme}>
+        <PreedaNavigation />
+      </ThemeProvider>
     </React.Fragment>
   );
 }
