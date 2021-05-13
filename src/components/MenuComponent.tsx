@@ -2,9 +2,7 @@ import React from "react";
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import '../styles/MenuComponent.css';
 export class MenuComponent extends React.Component {
-    onDocumentLoadSuccess() {
-        console.log('loaded!');
-    }
+
 
     getScale(): number {
         if (window.innerWidth > 960) {
@@ -21,9 +19,13 @@ export class MenuComponent extends React.Component {
             <div className="documentContainer">
                 <Document
                     file="menu_web.pdf"
-                    onLoadSuccess={this.onDocumentLoadSuccess}
                 >
                     <Page scale={this.getScale()} className='pageContainer' pageNumber={1} />
+                    <br />
+                    <Page scale={this.getScale()} className='pageContainer' pageNumber={2} />
+                    <br />
+                    <Page scale={this.getScale()} className='pageContainer' pageNumber={3} />
+                    <br />
                 </Document>
             </div>
         )
