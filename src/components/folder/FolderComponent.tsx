@@ -1,11 +1,15 @@
-import React, { ComponentProps, ComponentPropsWithRef, CSSProperties, DragEventHandler, RefObject } from "react";
+import React from "react";
 import Draggable from "react-draggable";
+import { Position } from "../../models/Position";
 import './FolderComponent.css';
 
 interface FolderComponentProps {
     folderName: string,
+    defaultPosition: Position,
     onClick: () => void
 }
+
+const DESKTOP_ITEM_CLASSNAME = 'desktop-item';
 
 export class FolderComponent extends React.Component<FolderComponentProps, {}> {
     draggableRef: React.RefObject<HTMLDivElement>;
@@ -14,10 +18,18 @@ export class FolderComponent extends React.Component<FolderComponentProps, {}> {
         this.draggableRef = React.createRef();
     }
 
+    handleDragStart() {
+        const desktopItems = Array.from(document.getElementsByClassName(DESKTOP_ITEM_CLASSNAME) as HTMLCollectionOf<HTMLDivElement>);
+        desktopItems.forEach(item => {
+            item.style.zIndex = '0';
+        })
+        this.draggableRef.current!.style.zIndex = '1';
+    }
+
     render() {
         return (
-            <Draggable defaultPosition={{ x: Math.random() * 100, y: Math.random() * 100 }}>
-                <div ref={this.draggableRef} onDragStart={() => this.draggableRef.current?.classList.replace('draggedFolder', 'draggingFolder')} onDragEnd={() => this.draggableRef.current?.classList.replace('draggingFolder', 'draggedFolder')} className="desktop-item" onDoubleClick={() => { this.props.onClick() }}>
+            <Draggable defaultPosition={this.props.defaultPosition} onStart={() => this.handleDragStart()} defaultClassNameDragging='draggingFolder'>
+                <div ref={this.draggableRef} className={DESKTOP_ITEM_CLASSNAME} onDoubleClick={() => { this.props.onClick() }}>
                     <div className="icon">
                         {this.props.children}
                     </div>

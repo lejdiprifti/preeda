@@ -18,6 +18,7 @@
 .desktop-item {
   width: 5em;
   z-index: 0;
+  position: absolute;
 }
 
 .folderImage {
@@ -26,9 +27,4 @@
 
 .draggingFolder {
   opacity: 0.5;
-  z-index: 1;
-}
-
-.draggedFolder {
-  z-index: 0;
 }

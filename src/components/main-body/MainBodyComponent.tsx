@@ -8,19 +8,19 @@ export const MainBodyComponent: React.FC = (): JSX.Element => {
                 <img className="addressImg" src='address.png' alt="address" />
             </div>
             <div className="folderContainer">
-                <FolderComponent folderName='Drinks' onClick={() => { console.log('clicked drinks') }}>
+                <FolderComponent defaultPosition={{ x: 20, y: -23 }} folderName='Drinks' onClick={() => { console.log('clicked drinks') }}>
                     <img className="folderImage" draggable="false" src='GenericFolder.png' alt='Folder' />
                 </FolderComponent>
-                <FolderComponent folderName='Food' onClick={() => { console.log('clicked drinks') }}>
+                <FolderComponent defaultPosition={{ x: -97, y: -80 }} folderName='Food' onClick={() => { console.log('clicked drinks') }}>
                     <img className="folderImage" draggable="false" src='GenericFolder.png' alt='Folder' />
                 </FolderComponent>
-                <FolderComponent folderName='Tables' onClick={() => { console.log('clicked drinks') }}>
+                <FolderComponent defaultPosition={{ x: -50, y: 56 }} folderName='Tables' onClick={() => { console.log('clicked drinks') }}>
                     <img className="folderImage" draggable="false" src='GenericFolder.png' alt='Folder' />
                 </FolderComponent>
-                <FolderComponent folderName='Trash' onClick={() => { document.getElementById('root')!.innerHTML = '' }}>
+                <FolderComponent defaultPosition={{ x: 100, y: -70 }} folderName='Trash' onClick={() => { document.getElementById('root')!.innerHTML = '' }}>
                     <img className="folderImage" draggable="false" src='TrashIcon.png' alt='Trash' />
                 </FolderComponent>
-                <FolderComponent folderName='Finder' onClick={() => { document.getElementById('root')!.innerHTML = '' }}>
+                <FolderComponent defaultPosition={{ x: -180, y: 40 }} folderName='Finder' onClick={() => { }}>
                     <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
                 </FolderComponent>
             </div>
