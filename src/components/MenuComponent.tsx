@@ -24,6 +24,11 @@ export class MenuComponent extends React.Component {
                     file="menu_web.pdf"
                 >
                     <Page scale={this.getScale()} className='pageContainer' pageNumber={1} />
+                    <br />
+                    <Page scale={this.getScale()} className='pageContainer' pageNumber={2} />
+                    <br />
+                    <Page scale={this.getScale()} className='pageContainer' pageNumber={3} />
+                    <br />
                 </Document>
             </div>
         )
