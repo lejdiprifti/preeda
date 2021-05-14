@@ -17,12 +17,52 @@
 
 .desktop-item {
   width: 5em;
-  z-index: 0;
   position: absolute;
 }
 
 .folderImage {
   width: 5em;
+}
+
+@media screen and (min-width: 300px) {
+  .desktop-item {
+    width: 2em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .folderImage {
+    width: 2em;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .desktop-item {
+    width: 5em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .folderImage {
+    width: 5em;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .desktop-item {
+    width: 5em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .folderImage {
+    width: 5em;
+  }
 }
 
 .draggingFolder {
