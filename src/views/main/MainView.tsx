@@ -1,7 +1,8 @@
 import React from "react";
-import './MainView.css';
 import { FolderComponent } from "../../components/folder/FolderComponent";
+import './MainView.css';
 export const MainView: React.FC = (): JSX.Element => {
+
     return (
         <div id="mainBodyContainer">
             <div className="imageContainer">
@@ -24,6 +25,7 @@ export const MainView: React.FC = (): JSX.Element => {
                     <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
                 </FolderComponent>
             </div>
+
         </div>
     )
 }
