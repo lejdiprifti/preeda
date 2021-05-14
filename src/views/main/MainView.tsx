@@ -1,7 +1,9 @@
 import React from "react";
+import { WindowComponent } from "../../components/finder/WindowComponent";
 import { FolderComponent } from "../../components/folder/FolderComponent";
 import './MainView.css';
 export const MainView: React.FC = (): JSX.Element => {
+    const [openWindow, setOpenWindow] = React.useState(false);
 
     return (
         <div id="mainBodyContainer">
@@ -15,7 +17,7 @@ export const MainView: React.FC = (): JSX.Element => {
                 <FolderComponent defaultPosition={{ x: -97, y: -80 }} folderName='Food' onClick={() => { console.log('clicked drinks') }}>
                     <img className="folderImage" draggable="false" src='GenericFolder.png' alt='Folder' />
                 </FolderComponent>
-                <FolderComponent defaultPosition={{ x: -50, y: 56 }} folderName='Tables' onClick={() => { console.log('clicked drinks') }}>
+                <FolderComponent defaultPosition={{ x: -50, y: 56 }} folderName='Tables' onClick={() => { setOpenWindow(true) }}>
                     <img className="folderImage" draggable="false" src='GenericFolder.png' alt='Folder' />
                 </FolderComponent>
                 <FolderComponent defaultPosition={{ x: 100, y: -70 }} folderName='Trash' onClick={() => { document.getElementById('root')!.innerHTML = '' }}>
@@ -25,7 +27,7 @@ export const MainView: React.FC = (): JSX.Element => {
                     <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
                 </FolderComponent>
             </div>
-
+            {openWindow && <WindowComponent windowTitle='Archive' />}
         </div>
     )
 }

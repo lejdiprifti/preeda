@@ -1,7 +1,7 @@
 .program-window {
-  position: absolute;
-  height: 70%;
-  width: 60%;
+  position: relative;
+  height: 20rem;
+  width: 20em;
   z-index: 100;
   pointer-events: none;
   transition: all 0.15s cubic-bezier(0.17, 0.49, 0.03, 0.96);
@@ -9,6 +9,36 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+@media screen and (min-width: 300px) {
+  .program-window {
+    position: relative;
+    height: 20em;
+    width: 80%;
+    z-index: 100;
+    pointer-events: none;
+    transition: all 0.15s cubic-bezier(0.17, 0.49, 0.03, 0.96);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .program-window {
+    position: relative;
+    height: 30em;
+    width: 80%;
+    z-index: 100;
+    pointer-events: none;
+    transition: all 0.15s cubic-bezier(0.17, 0.49, 0.03, 0.96);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
 .window {
@@ -71,4 +101,20 @@
 .title-bar-controls button.green {
   background-color: #2ac940;
   border-color: #2bac2d;
+}
+
+.title-bar-text {
+  font-weight: 400;
+  color: #423f42;
+  font-family: "SF Pro";
+  letter-spacing: -0.3px;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
 }

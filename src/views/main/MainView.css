@@ -1,6 +1,6 @@
 #mainBodyContainer {
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -9,7 +9,7 @@
 @media (min-width: 300px) {
   #mainBodyContainer {
     flex: 1;
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +29,7 @@
 @media (min-width: 960px) {
   #mainBodyContainer {
     flex: 1;
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

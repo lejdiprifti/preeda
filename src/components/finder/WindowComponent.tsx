@@ -17,7 +17,7 @@ export class WindowComponent extends React.Component<WindowComponentProps> {
                     <div className="window">
                         <div className="title-bar">
                             <div className="title-bar-controls">
-                                <button title="Close window" className="title-bar-control red"></button>
+                                <button title="Close window" className="title-bar-control red" onTouchStart={() => { console.log('clicked') }} onClick={() => { console.log('closing') }}></button>
                                 <button title="Minimize window" className="title-bar-control yellow"></button>
                                 <button title="Maximize window" className="title-bar-control green"></button>
                             </div>
