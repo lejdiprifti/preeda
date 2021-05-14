@@ -1,7 +1,7 @@
 import React from "react";
-import './MainBodyComponent.css';
-import { FolderComponent } from "../folder/FolderComponent";
-export const MainBodyComponent: React.FC = (): JSX.Element => {
+import './MainView.css';
+import { FolderComponent } from "../../components/folder/FolderComponent";
+export const MainView: React.FC = (): JSX.Element => {
     return (
         <div id="mainBodyContainer">
             <div className="imageContainer">

@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import { FooterComponent } from './components/footer/FooterComponent';
 import { HeaderComponent } from './components/header/HeaderComponent';
-import { MainBodyComponent } from './components/main-body/MainBodyComponent';
+import { MainView } from './views/main/MainView';
 
 function App() {
   return (
     <React.Fragment>
       <HeaderComponent />
-      <MainBodyComponent />
+      <MainView />
       <FooterComponent />
     </React.Fragment>
   );
