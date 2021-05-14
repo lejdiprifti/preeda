@@ -20,7 +20,7 @@ export const MainView: React.FC = (): JSX.Element => {
                 <FolderComponent defaultPosition={{ x: 100, y: -70 }} folderName='Trash' onClick={() => { document.getElementById('root')!.innerHTML = '' }}>
                     <img className="folderImage" draggable="false" src='TrashIcon.png' alt='Trash' />
                 </FolderComponent>
-                <FolderComponent defaultPosition={{ x: -180, y: 40 }} folderName='Finder' onClick={() => { }}>
+                <FolderComponent defaultPosition={{ x: -140, y: 10 }} folderName='Finder' onClick={() => { }}>
                     <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
                 </FolderComponent>
             </div>
