@@ -1,6 +1,7 @@
 import React from "react";
-import { WindowComponent } from "../../components/finder/WindowComponent";
+import { FinderComponent } from "../../components/finder/FinderComponent";
 import { FolderComponent } from "../../components/folder/FolderComponent";
+import { FOLDERS } from "../../constants/data";
 import './MainView.css';
 export const MainView: React.FC = (): JSX.Element => {
     const [openWindow, setOpenWindow] = React.useState(false);
@@ -27,7 +28,7 @@ export const MainView: React.FC = (): JSX.Element => {
                     <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
                 </FolderComponent>
             </div>
-            {openWindow && <WindowComponent windowTitle='Archive' />}
+            {openWindow && <FinderComponent data={FOLDERS} />}
         </div>
     )
 }
