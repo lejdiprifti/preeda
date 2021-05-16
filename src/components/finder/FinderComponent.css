@@ -65,7 +65,7 @@
 
 .sidebar {
   height: 100%;
-  padding: 5px 0;
+  padding: 2px 0;
   width: 100%;
 }
 
@@ -74,6 +74,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 3px 12px;
+}
+
+.small {
+  width: 18px;
+  height: 18px;
 }
 
 .sidebar-item.is-active {

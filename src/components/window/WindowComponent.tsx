@@ -1,15 +1,20 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import Draggable from "react-draggable";
+import { connect } from "react-redux";
+import { WindowStatesEnum } from "../../models/enums/window.states";
+import { setWindowState } from "../../store/actions";
 import './WindowComponent.css';
-interface WindowComponentProps {
-    windowTitle: string
+export interface WindowComponentProps {
+    windowTitle: string,
+    setWindowState: typeof setWindowState
 }
-export class WindowComponent extends React.Component<WindowComponentProps> {
+
+export type WindowComponentPropsWithChildren = PropsWithChildren<WindowComponentProps>;
+class WindowComponent extends React.Component<WindowComponentPropsWithChildren> {
 
     constructor(props: WindowComponentProps) {
         super(props);
     }
-
     render() {
         return (
             <Draggable>
@@ -17,7 +22,7 @@ export class WindowComponent extends React.Component<WindowComponentProps> {
                     <div className="window">
                         <div className="title-bar">
                             <div className="title-bar-controls">
-                                <button title="Close window" className="title-bar-control red" onTouchStart={() => { console.log('clicked') }} onClick={() => { console.log('closing') }}></button>
+                                <button title="Close window" className="title-bar-control red" onTouchStart={() => { }} onClick={() => { this.props.setWindowState(WindowStatesEnum.CLOSED) }}></button>
                                 <button title="Minimize window" className="title-bar-control yellow"></button>
                                 <button title="Maximize window" className="title-bar-control green"></button>
                             </div>
@@ -32,3 +37,5 @@ export class WindowComponent extends React.Component<WindowComponentProps> {
         )
     }
 }
+
+export default connect(null, { setWindowState })(WindowComponent);

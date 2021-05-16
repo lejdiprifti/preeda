@@ -1,8 +1,9 @@
 import React from "react";
 import { FOLDERS } from "../../constants/data";
+import { FinderNavigationStages } from "../../models/enums/finder.navigation.stages.enum";
 import { Folder } from "../../models/Folder";
 import { Image } from "../../models/Image";
-import { WindowComponent } from "../window/WindowComponent";
+import WindowComponent from "../window/WindowComponent";
 import './FinderComponent.css';
 
 interface FinderComponentProps {
@@ -10,7 +11,8 @@ interface FinderComponentProps {
 }
 interface FinderComponentState {
     selectedFolder: Folder,
-    selectedImage: Image
+    selectedImage: Image,
+    currentNavigationStage: FinderNavigationStages
 }
 export class FinderComponent extends React.Component<FinderComponentProps, FinderComponentState> {
 
@@ -18,7 +20,36 @@ export class FinderComponent extends React.Component<FinderComponentProps, Finde
         super(props);
         this.state = {
             selectedFolder: FOLDERS[0],
-            selectedImage: FOLDERS[0].images[0]
+            selectedImage: FOLDERS[0].images[0],
+            currentNavigationStage: FinderNavigationStages.FOLDER
+        }
+    }
+
+    handleForwardNavigationClick() {
+        switch (this.state.currentNavigationStage) {
+            case FinderNavigationStages.FOLDER:
+                this.setState({
+                    ...this.state,
+                    selectedImage: this.state.selectedImage ? this.state.selectedImage : this.state.selectedFolder.images[0],
+                    currentNavigationStage: FinderNavigationStages.IMAGE
+                })
+                break;
+            default:
+                return;
+        }
+    }
+
+    handleBackwardNavigationClick() {
+        switch (this.state.currentNavigationStage) {
+            case FinderNavigationStages.IMAGE:
+                this.setState({
+                    ...this.state,
+                    selectedImage: undefined!,
+                    currentNavigationStage: FinderNavigationStages.FOLDER
+                })
+                break;
+            default:
+                return;
         }
     }
 
@@ -36,12 +67,12 @@ export class FinderComponent extends React.Component<FinderComponentProps, Finde
                 <div className="finder-program">
                     <div className="finder-toolbar">
                         <div className="flex">
-                            <div className="toolbar-button mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" className="small" data-v-ec73b998="" data-v-09e53189=""><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" data-v-ec73b998=""></path>
+                            <div className="toolbar-button mr-2" style={this.state.currentNavigationStage === FinderNavigationStages.FOLDER ? { opacity: 0.5 } : {}} onTouchStart={() => { this.handleBackwardNavigationClick() }} onClick={() => { this.handleBackwardNavigationClick() }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" className="small"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path>
                                 </svg>
                             </div>
-                            <div className="toolbar-button mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" className="small" data-v-ca06ae6c="" data-v-09e53189=""><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" data-v-ca06ae6c=""></path>
+                            <div className="toolbar-button mr-2" style={this.state.currentNavigationStage === FinderNavigationStages.IMAGE ? { opacity: 0.5 } : {}} onTouchStart={() => { this.handleForwardNavigationClick() }} onClick={() => { this.handleForwardNavigationClick() }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" className="small"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path>
                                 </svg>
                             </div>
                             <div className="toolbar-text">
@@ -56,8 +87,8 @@ export class FinderComponent extends React.Component<FinderComponentProps, Finde
                                     return (
                                         <div
                                             className={"sidebar-item " + (this.state.selectedFolder.name === currentElement.name ? 'is-active' : '')}
-                                            onTouchStart={() => { this.setState({ selectedFolder: currentElement }) }}
-                                            onClick={() => { this.setState({ selectedFolder: currentElement }) }}>
+                                            onTouchStart={() => { this.setState({ ...this.state, selectedFolder: currentElement, currentNavigationStage: FinderNavigationStages.FOLDER }) }}
+                                            onClick={() => { this.setState({ ...this.state, selectedFolder: currentElement, currentNavigationStage: FinderNavigationStages.FOLDER }) }}>
                                             <div className="title">{currentElement.name}</div>
                                             <div className="label">{currentElement.images.length}</div>
                                         </div>
