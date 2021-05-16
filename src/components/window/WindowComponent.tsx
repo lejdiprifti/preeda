@@ -22,7 +22,7 @@ class WindowComponent extends React.Component<WindowComponentPropsWithChildren> 
                     <div className="window">
                         <div className="title-bar">
                             <div className="title-bar-controls">
-                                <button title="Close window" className="title-bar-control red" onTouchStart={() => { }} onClick={() => { this.props.setWindowState(WindowStatesEnum.CLOSED) }}></button>
+                                <button title="Close window" className="title-bar-control red" onTouchStart={() => { this.props.setWindowState(WindowStatesEnum.CLOSED) }} onClick={() => { this.props.setWindowState(WindowStatesEnum.CLOSED) }}></button>
                                 <button title="Minimize window" className="title-bar-control yellow"></button>
                                 <button title="Maximize window" className="title-bar-control green"></button>
                             </div>
