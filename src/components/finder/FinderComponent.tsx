@@ -1,30 +1,43 @@
 import React from "react";
+import { connect } from "react-redux";
 import { FOLDERS } from "../../constants/data";
 import { FinderNavigationStages } from "../../models/enums/finder.navigation.stages.enum";
 import { Folder } from "../../models/Folder";
 import { Image } from "../../models/Image";
+import { PreedaApplicationState } from "../../store/reducers";
 import WindowComponent from "../window/WindowComponent";
 import './FinderComponent.css';
 
 interface FinderComponentProps {
-    data: Folder[]
+    data: Folder[],
+    selectedFolder: string
 }
 interface FinderComponentState {
     selectedFolder: Folder,
     selectedImage: Image,
     currentNavigationStage: FinderNavigationStages
 }
-export class FinderComponent extends React.Component<FinderComponentProps, FinderComponentState> {
+class FinderComponent extends React.Component<FinderComponentProps, FinderComponentState> {
 
     constructor(props: FinderComponentProps) {
         super(props);
+
         this.state = {
-            selectedFolder: FOLDERS[0],
+            selectedFolder: this.getFolder(),
             selectedImage: FOLDERS[0].images[0],
             currentNavigationStage: FinderNavigationStages.FOLDER
         }
     }
 
+    getFolder(): Folder {
+        switch (this.props.selectedFolder) {
+            case 'Trash':
+            case 'Finder':
+                return FOLDERS[0];
+            default:
+                return FOLDERS.find(currentFolder => currentFolder.name === this.props.selectedFolder)!;
+        }
+    }
     handleForwardNavigationClick() {
         switch (this.state.currentNavigationStage) {
             case FinderNavigationStages.FOLDER:
@@ -148,3 +161,11 @@ export class FinderComponent extends React.Component<FinderComponentProps, Finde
         )
     }
 }
+
+const mapStateToProps = (state: PreedaApplicationState) => {
+    return {
+        selectedFolder: state.selectedFolder
+    }
+}
+
+export default connect(mapStateToProps, {})(FinderComponent);

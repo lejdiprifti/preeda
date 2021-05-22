@@ -1,0 +1,72 @@
+.title-bar .title-bar-controls {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 6px;
+}
+
+.title-bar {
+  position: relative;
+  padding: 4px 65px 5px;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  box-shadow: inset 0 0 0 0 hsl(0deg 0% 100% / 60%),
+    inset 0 0 0 0 rgb(0 0 0 / 20%);
+  background-image: linear-gradient(180deg, #e7e6e7, #d1d0d1);
+}
+
+.sized {
+  position: absolute;
+  bottom: 100px;
+  right: 10px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.title-bar-controls button.red {
+  background-color: #ff5f58;
+  border-color: #e1483f;
+}
+
+.title-bar-controls button {
+  display: block;
+  height: 12px;
+  width: 12px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid;
+  cursor: pointer;
+  transition: background-color 50ms ease-out;
+}
+
+.title-bar-controls button.yellow {
+  background-color: #ffbe2f;
+  border-color: #e0a028;
+}
+
+.title-bar-controls button + button {
+  margin-left: 8px;
+}
+
+.title-bar-controls button.green {
+  background-color: #2ac940;
+  border-color: #2bac2d;
+}
+
+.title-bar-text {
+  font-weight: 400;
+  color: #423f42;
+  font-family: "SF Pro";
+  letter-spacing: -0.3px;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+}

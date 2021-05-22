@@ -1,20 +1,26 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import Draggable from "react-draggable";
+import { connect } from "react-redux";
+import { WindowStatesEnum } from "../../models/enums/window.states";
 import { Position } from "../../models/Position";
+import { setWindowState } from "../../store/actions";
+import { selectFolder } from "../../store/actions/folder.actions";
 import './FolderComponent.css';
 
 interface FolderComponentProps {
     folderName: string,
     defaultPosition: Position,
-    onClick: () => void
+    selectFolder: typeof selectFolder,
+    setWindowState: typeof setWindowState
 }
 
 const DESKTOP_ITEM_CLASSNAME = 'desktop-item';
 
-export class FolderComponent extends React.Component<FolderComponentProps, {}> {
+type FolderComponentPropsWithChildren = PropsWithChildren<FolderComponentProps>;
+class FolderComponent extends React.Component<FolderComponentPropsWithChildren, {}> {
     draggableRef: React.RefObject<HTMLDivElement>;
     clickCount: number;
-    constructor(props: FolderComponentProps) {
+    constructor(props: FolderComponentPropsWithChildren) {
         super(props);
         this.draggableRef = React.createRef();
         this.clickCount = 0;
@@ -28,6 +34,11 @@ export class FolderComponent extends React.Component<FolderComponentProps, {}> {
         this.draggableRef.current!.style.zIndex = '1';
     }
 
+    openWindow() {
+        this.props.selectFolder(this.props.folderName);
+        this.props.setWindowState(WindowStatesEnum.OPENED)
+    }
+
     handleClicks() {
         this.clickCount++;
         let singleClickTimer: NodeJS.Timeout;
@@ -39,14 +50,14 @@ export class FolderComponent extends React.Component<FolderComponentProps, {}> {
         } else if (this.clickCount === 2) {
             clearTimeout(singleClickTimer!);
             this.clickCount = 0;
-            this.props.onClick();
+            this.openWindow();
         }
     }
 
     render() {
         return (
             <Draggable defaultPosition={this.props.defaultPosition} onStart={() => this.handleDragStart()} defaultClassNameDragging='draggingFolder'>
-                <div ref={this.draggableRef} className={DESKTOP_ITEM_CLASSNAME} onTouchStart={() => { this.handleClicks() }} onDoubleClick={() => { this.props.onClick() }}>
+                <div ref={this.draggableRef} className={DESKTOP_ITEM_CLASSNAME} onTouchStart={() => { this.handleClicks() }} onDoubleClick={() => { this.openWindow() }}>
                     <div className="icon">
                         {this.props.children}
                     </div>
@@ -58,3 +69,5 @@ export class FolderComponent extends React.Component<FolderComponentProps, {}> {
         )
     }
 }
+
+export default connect(null, { setWindowState, selectFolder })(FolderComponent);
