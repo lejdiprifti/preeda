@@ -3,7 +3,7 @@ import { HashRouter, Route } from "react-router-dom";
 import { FooterComponent } from "../components/FooterComponent";
 import { HeaderComponent } from "../components/HeaderComponent";
 import { MainBodyComponent } from "../components/MainBodyComponent";
-import { MenuComponent } from "../components/MenuComponent";
+import { PdfComponent } from "../components/PdfComponent";
 
 export class PreedaNavigation extends React.Component {
     render() {
@@ -11,7 +11,8 @@ export class PreedaNavigation extends React.Component {
             <HashRouter>
                 <HeaderComponent />
                 <Route exact path="/" ><MainBodyComponent /></Route>
-                <Route exact path="/menu"><MenuComponent /></Route>
+                <Route exact path="/food"><PdfComponent src='food_20210520.pdf' pageCount={10} /></Route>
+                <Route exact path="/drinks"><PdfComponent src='drinks_20210520.pdf' pageCount={8} /></Route>
                 <FooterComponent />
             </HashRouter>
         )
