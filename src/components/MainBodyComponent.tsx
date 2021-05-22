@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
 import '../styles/MainBodyComponent.css';
@@ -13,9 +13,18 @@ export class MainBodyComponent extends React.Component {
                     <img src='address.png' alt="address" />
                 </div>
                 <div className="buttonContainer">
-                    <Button component={Link} to='/menu' variant="contained" color="primary">
-                        Current Menu
+                    <Grid container direction="row" justify="center" spacing={3}>
+                        <Grid item>
+                            <Button component={Link} to='/food' variant="contained" color="primary">
+                                Food Menu
                     </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button component={Link} to='/drinks' variant="contained" color="secondary">
+                                Drinks Menu
+                    </Button>
+                        </Grid>
+                    </Grid>
                 </div>
             </div >
         );
