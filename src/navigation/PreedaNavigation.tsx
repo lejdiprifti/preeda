@@ -11,7 +11,7 @@ export class PreedaNavigation extends React.Component {
             <HashRouter>
                 <HeaderComponent />
                 <Route exact path="/" ><MainBodyComponent /></Route>
-                <Route exact path="/food"><PdfComponent src='food_20210520.pdf' pageCount={12} /></Route>
+                <Route exact path="/food"><PdfComponent src='food_20210520.pdf' pageCount={10} /></Route>
                 <Route exact path="/drinks"><PdfComponent src='drinks_20210520.pdf' pageCount={10} /></Route>
                 <FooterComponent />
             </HashRouter>
