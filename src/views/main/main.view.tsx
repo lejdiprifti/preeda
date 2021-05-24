@@ -1,13 +1,15 @@
+import { Button, Grid } from "@material-ui/core";
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import FinderComponent from "../../components/finder/FinderComponent";
 import FolderComponent from "../../components/folder/FolderComponent";
+import TitleBarComponent from "../../components/tile-bar/TitleBarComponent";
 import { FOLDERS } from "../../constants/data";
 import { WindowStatesEnum } from "../../models/enums/window.states";
-import { PreedaApplicationState } from "../../store/reducers";
 import { setWindowState } from "../../store/actions";
+import { PreedaApplicationState } from "../../store/reducers";
 import './main.view.css';
-import TitleBarComponent from "../../components/tile-bar/TitleBarComponent";
 
 interface MainViewProps {
     windowState: WindowStatesEnum,
@@ -21,28 +23,53 @@ class MainView extends React.Component<MainViewProps> {
     render() {
         return (
             <div id="mainBodyContainer">
-                <div>
-                    <img className="addressImg" src='address.png' alt="address" />
-                </div>
-                <div className="folderContainer">
-                    {FOLDERS.map(currentFolder => {
-                        return <FolderComponent defaultPosition={currentFolder.position} folderName={currentFolder.name}>
-                            <img className="folderImage" draggable="false" src={currentFolder.iconSrc} alt={currentFolder.name} />
-                        </FolderComponent>
-                    })}
-                    <FolderComponent defaultPosition={{ x: 100, y: -70 }} folderName='Trash'>
-                        <img className="folderImage" draggable="false" src='TrashIcon.png' alt='Trash' />
-                    </FolderComponent>
-                    <FolderComponent defaultPosition={{ x: -140, y: 10 }} folderName='Finder'>
-                        <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
-                    </FolderComponent>
-                </div>
-                { this.props.windowState === WindowStatesEnum.OPENED && <FinderComponent data={FOLDERS} />}
-                {this.props.windowState === WindowStatesEnum.SIZED && <TitleBarComponent title='Archive' />}
+                <Grid container direction="row">
+                    <Grid item>
+                        <img className="addressImg" src='address.png' alt="address" />
+                    </Grid>
+                    <Grid item className="buttonFolderContainer">
+                        <Grid container direction="row" justify="center" spacing={3} alignItems="stretch">
+                            <Grid item>
+                                <Button component={Link} to='/food' variant="contained" color="primary">
+                                    Food Menu
+                            </Button>
+                            </Grid>
+                            <Grid item>
+                                <Button component={Link} to='/drinks' variant="contained" color="secondary">
+                                    Drinks Menu
+                            </Button>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <Grid container direction="row" spacing={4}>
+                                {FOLDERS.map(currentFolder => {
+                                    return <Grid item>
+                                        <FolderComponent folderName={currentFolder.name}>
+                                            <img className="folderImage" draggable="false" src={currentFolder.iconSrc} alt={currentFolder.name} />
+                                        </FolderComponent>
+                                    </Grid>
+                                })}
+                                <Grid item>
+                                    <FolderComponent folderName='Trash'>
+                                        <img className="folderImage" draggable="false" src='TrashIcon.png' alt='Trash' />
+                                    </FolderComponent>
+                                </Grid>
+                                <Grid item>
+                                    <FolderComponent folderName='Finder'>
+                                        <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
+                                    </FolderComponent>
+                                </Grid>
+                            </Grid>
+
+                        </Grid>
+                        {this.props.windowState === WindowStatesEnum.OPENED &&
+                            <Grid item><FinderComponent data={FOLDERS} /> </Grid>}
+                        {this.props.windowState === WindowStatesEnum.SIZED && <Grid item><TitleBarComponent title='Archive' /></Grid>}
+                    </Grid>
+                </Grid>
             </div>
         )
     }
-
 }
 const mapStateToProps = (state: PreedaApplicationState) => {
     return {

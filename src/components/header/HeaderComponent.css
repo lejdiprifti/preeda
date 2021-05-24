@@ -36,19 +36,19 @@
 }
 
 @media (min-width: 200px) {
-  .imageContanier {
-    min-width: 300%;
+  #container .imageContanier {
+    min-width: 200%;
   }
 }
 
 @media (min-width: 1700px) {
-  .imageContanier {
+  #container .imageContanier {
     min-width: 100%;
   }
 }
 
 @media (min-width: 960px) {
-  .imageContanier {
+  #container .imageContanier {
     min-width: 100%;
   }
 }

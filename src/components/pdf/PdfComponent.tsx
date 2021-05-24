@@ -1,6 +1,6 @@
 import React from "react";
 import { Document, Page, pdfjs } from 'react-pdf/dist/esm/entry.webpack';
-import '../styles/MenuComponent.css';
+import './PdfComponent.css';
 
 interface PdfComponentProps {
     src: string;

@@ -9,7 +9,6 @@ import './FolderComponent.css';
 
 interface FolderComponentProps {
     folderName: string,
-    defaultPosition: Position,
     selectFolder: typeof selectFolder,
     setWindowState: typeof setWindowState
 }
@@ -56,7 +55,7 @@ class FolderComponent extends React.Component<FolderComponentPropsWithChildren, 
 
     render() {
         return (
-            <Draggable defaultPosition={this.props.defaultPosition} onStart={() => this.handleDragStart()} defaultClassNameDragging='draggingFolder'>
+            <Draggable onStart={() => this.handleDragStart()} defaultClassNameDragging='draggingFolder'>
                 <div ref={this.draggableRef} className={DESKTOP_ITEM_CLASSNAME} onTouchStart={() => { this.handleClicks() }} onDoubleClick={() => { this.openWindow() }}>
                     <div className="icon">
                         {this.props.children}

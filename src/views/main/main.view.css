@@ -1,9 +1,6 @@
 #mainBodyContainer {
   width: 100%;
   overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
 }
 
 @media (min-width: 300px) {
@@ -31,10 +28,15 @@
     flex: 1;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   #mainBodyContainer .addressImg {
-    width: 45em;
+    width: 30em;
   }
+}
+
+.buttonFolderContainer {
+  margin: auto !important;
 }
