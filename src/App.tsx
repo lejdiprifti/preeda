@@ -1,19 +1,15 @@
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import './App.css';
-import { FooterComponent } from './components/footer/FooterComponent';
-import { HeaderComponent } from './components/header/HeaderComponent';
-import { reducers } from './store/reducers';
-import MainView from './views/main/main.view';
+import { ThemeProvider } from '@material-ui/styles';
+import React from 'react';
+import { PreedaNavigation } from './navigation/PreedaNavigation';
+import { preedaTheme } from './theme/PreedaTheme';
 
-const store = createStore(reducers);
-function App() {
+const App: React.FC = (): JSX.Element => {
   return (
-    <Provider store={store}>
-      <HeaderComponent />
-      <MainView />
-      <FooterComponent />
-    </Provider>
+    <React.Fragment>
+      <ThemeProvider theme={preedaTheme}>
+        <PreedaNavigation />
+      </ThemeProvider>
+    </React.Fragment>
   );
 }
 
