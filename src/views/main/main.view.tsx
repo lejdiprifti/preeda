@@ -24,6 +24,9 @@ class MainView extends React.Component<MainViewProps> {
         return (
             <div id="mainBodyContainer">
                 <Grid container direction="row">
+                    {this.props.windowState === WindowStatesEnum.OPENED &&
+                        <Grid item><FinderComponent data={FOLDERS} /> </Grid>}
+                    {this.props.windowState === WindowStatesEnum.SIZED && <Grid item><TitleBarComponent title='Archive' /></Grid>}
                     <Grid item>
                         <img className="addressImg" src='address.png' alt="address" />
                     </Grid>
@@ -62,9 +65,6 @@ class MainView extends React.Component<MainViewProps> {
                             </Grid>
 
                         </Grid>
-                        {this.props.windowState === WindowStatesEnum.OPENED &&
-                            <Grid item><FinderComponent data={FOLDERS} /> </Grid>}
-                        {this.props.windowState === WindowStatesEnum.SIZED && <Grid item><TitleBarComponent title='Archive' /></Grid>}
                     </Grid>
                 </Grid>
             </div>

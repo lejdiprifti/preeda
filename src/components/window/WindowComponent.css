@@ -32,7 +32,7 @@
   .program-window {
     position: absolute;
     height: 30em;
-    width: 80%;
+    width: 50%;
     z-index: 100;
     pointer-events: none;
     transition: all 0.15s cubic-bezier(0.17, 0.49, 0.03, 0.96);

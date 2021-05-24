@@ -2,7 +2,6 @@ import React, { PropsWithChildren } from "react";
 import Draggable from "react-draggable";
 import { connect } from "react-redux";
 import { WindowStatesEnum } from "../../models/enums/window.states";
-import { Position } from "../../models/Position";
 import { setWindowState } from "../../store/actions";
 import { selectFolder } from "../../store/actions/folder.actions";
 import './FolderComponent.css';
@@ -34,8 +33,12 @@ class FolderComponent extends React.Component<FolderComponentPropsWithChildren, 
     }
 
     openWindow() {
-        this.props.selectFolder(this.props.folderName);
-        this.props.setWindowState(WindowStatesEnum.OPENED)
+        if (this.props.folderName.toUpperCase() === 'TRASH') {
+            document.getElementById('root')!.innerHTML = '';
+        } else {
+            this.props.selectFolder(this.props.folderName);
+            this.props.setWindowState(WindowStatesEnum.OPENED)
+        }
     }
 
     handleClicks() {

@@ -5,5 +5,4 @@ export interface Folder {
   name: string;
   images: Image[];
   iconSrc: string;
-  position: Position;
 }
