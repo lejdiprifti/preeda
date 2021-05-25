@@ -68,9 +68,9 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
 
     handleImageSelected(currentImage: Image) {
         if (this.state.selectedImage && currentImage.src === this.state.selectedImage.src) {
-            this.setState({ ...this.state, selectedImage: undefined! })
+            this.setState({ ...this.state, selectedImage: undefined!, currentNavigationStage: FinderNavigationStages.FOLDER })
         } else {
-            this.setState({ ...this.state, selectedImage: currentImage })
+            this.setState({ ...this.state, selectedImage: currentImage, currentNavigationStage: FinderNavigationStages.IMAGE })
         }
     }
 
