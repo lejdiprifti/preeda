@@ -31,7 +31,6 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
 
     getFolder(): Folder {
         switch (this.props.selectedFolder) {
-            case 'Trash':
             case 'Finder':
                 return FOLDERS[0];
             default:
