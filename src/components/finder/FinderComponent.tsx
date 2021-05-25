@@ -24,7 +24,7 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
 
         this.state = {
             selectedFolder: this.getFolder(),
-            selectedImage: FOLDERS[0].images[0],
+            selectedImage: undefined!,
             currentNavigationStage: FinderNavigationStages.FOLDER
         }
     }
@@ -48,6 +48,14 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
                 break;
             default:
                 return;
+        }
+    }
+
+    handleFolderClick(currentFolder: Folder) {
+        if (this.state.selectedFolder.name !== currentFolder.name) {
+            this.setState({ ...this.state, selectedFolder: currentFolder, currentNavigationStage: FinderNavigationStages.FOLDER })
+        } else {
+            this.setState({ ...this.state, selectedFolder: currentFolder, selectedImage: undefined!, currentNavigationStage: FinderNavigationStages.FOLDER })
         }
     }
 
@@ -99,8 +107,8 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
                                     return (
                                         <div
                                             className={"sidebar-item " + (this.state.selectedFolder.name === currentElement.name ? 'is-active' : '')}
-                                            onTouchStart={() => { this.setState({ ...this.state, selectedFolder: currentElement, currentNavigationStage: FinderNavigationStages.FOLDER }) }}
-                                            onClick={() => { this.setState({ ...this.state, selectedFolder: currentElement, currentNavigationStage: FinderNavigationStages.FOLDER }) }}>
+                                            onTouchStart={() => { this.handleFolderClick(currentElement) }}
+                                            onClick={() => { this.handleFolderClick(currentElement) }}>
                                             <div className="title">{currentElement.name}</div>
                                             <div className="label">{currentElement.images.length}</div>
                                         </div>
@@ -114,7 +122,7 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
                                     {this.state.selectedFolder.images.map(currentImage => {
                                         return (
                                             <div className={"file-list-item " + (this.state.selectedImage?.src === currentImage.src ? 'is-active' : '')} >
-                                                <div className="row" onTouchStart={() => { this.handleImageSelected(currentImage) }} onClick={() => { this.handleImageSelected(currentImage) }}>
+                                                <div className="row" onTouchStartCapture={() => { console.log('executed'); this.handleImageSelected(currentImage) }} onClick={() => { this.handleImageSelected(currentImage) }}>
                                                     <img src="GenericImageIcon.png" className="icon" />
                                                     <div className="name"><span className="base">{currentImage.title}</span> <span className="extension">.jpg</span></div>
                                                     <svg width="9" height="11" xmlns="http://www.w3.org/2000/svg" className="">

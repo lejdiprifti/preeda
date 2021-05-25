@@ -17,7 +17,7 @@ class WindowComponent extends React.Component<WindowComponentPropsWithChildren> 
     }
     render() {
         return (
-            <Draggable>
+            <Draggable cancel=".window-body" defaultClassNameDragging="draggingWindow">
                 <div className="program-window">
                     <div className="window">
                         <TitleBarComponent title={this.props.windowTitle} />

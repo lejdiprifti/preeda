@@ -23,7 +23,7 @@ class MainView extends React.Component<MainViewProps> {
     render() {
         return (
             <div id="mainBodyContainer">
-                <Grid container direction="row">
+                <Grid container direction="row" alignItems="flex-start">
                     {this.props.windowState === WindowStatesEnum.OPENED &&
                         <Grid item><FinderComponent data={FOLDERS} /> </Grid>}
                     {this.props.windowState === WindowStatesEnum.SIZED && <Grid item><TitleBarComponent title='Archive' /></Grid>}

@@ -7,7 +7,23 @@ export const FOLDERS: Folder[] = [
     images: [
       {
         src: "assets/drinks/Amphai 1.jpg",
-        title: "Amphai 1",
+        title: "Amphai",
+        price: 20,
+      },
+    ],
+    iconSrc: GENERIC_FOLDER,
+  },
+  {
+    name: "Starters",
+    images: [
+      {
+        src: "assets/starters/Papaya Pile.jpg",
+        title: "Papaya Pile",
+        price: 20,
+      },
+      {
+        src: "assets/starters/Tom Yam Gung 6.jpg",
+        title: "Tom Yam Gung",
         price: 20,
       },
     ],
@@ -18,22 +34,22 @@ export const FOLDERS: Folder[] = [
     images: [
       {
         src: "assets/tacos/Taco 1.jpg",
-        title: "Taco 1",
+        title: "Taco",
         price: 20,
       },
       {
         src: "assets/tacos/Taco 2.jpg",
-        title: "Taco 2",
+        title: "Taco",
         price: 20,
       },
       {
         src: "assets/tacos/Taco 3.jpg",
-        title: "Taco 3",
+        title: "Taco",
         price: 20,
       },
       {
         src: "assets/tacos/Taco 4.jpg",
-        title: "Taco 4",
+        title: "Taco",
         price: 20,
       },
     ],
@@ -55,12 +71,12 @@ export const FOLDERS: Folder[] = [
       },
       {
         src: "assets/main/Pad Thai 1.jpg",
-        title: "Pad Thai 1",
+        title: "Pad Thai",
         price: 20,
       },
       {
         src: "assets/main/Pad Thai 3.jpg",
-        title: "Pad Thai 3",
+        title: "Pad Thai",
         price: 30,
       },
     ],
