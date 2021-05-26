@@ -122,10 +122,10 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
                                     {this.state.selectedFolder.images.map(currentImage => {
                                         return (
                                             <div className={"file-list-item " + (this.state.selectedImage?.src === currentImage.src ? 'is-active' : '')} >
-                                                <div className="row" onTouchStartCapture={() => { console.log('executed'); this.handleImageSelected(currentImage) }} onClick={() => { this.handleImageSelected(currentImage) }}>
+                                                <div className="row" onClick={() => { this.handleImageSelected(currentImage) }}>
                                                     <img src="GenericImageIcon.png" className="icon" />
                                                     <div className="name"><span className="base">{currentImage.title}</span> <span className="extension">.jpg</span></div>
-                                                    <svg width="9" height="11" xmlns="http://www.w3.org/2000/svg" className="">
+                                                    <svg width="9" height="11" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill="#FFF" d="M0 10.5V.5l9 5z" fillRule="evenodd"></path>
                                                     </svg>
                                                 </div>

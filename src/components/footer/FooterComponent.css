@@ -32,11 +32,12 @@
   overflow-x: hidden;
   flex-direction: row;
   display: flex;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 300px) {
   #footerContainer .imageContanier {
-    min-width: 200%;
+    min-width: 300%;
   }
 }
 
