@@ -130,7 +130,7 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
                                                     </svg>
                                                 </div>
                                                 <div className="file-preview" style={this.state.selectedImage && this.state.selectedImage.src === currentImage.src ? {} : { display: "none" }}>
-                                                    <div title="Double click to open in a new window" className="file-viz">
+                                                    <div title="Come to Preeda and enjoy it!" className="file-viz">
                                                         <img src={this.state.selectedImage?.src} className="file-image" />
                                                     </div>
                                                     <div className="file-info">
