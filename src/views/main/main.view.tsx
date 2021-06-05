@@ -41,48 +41,49 @@ class MainView extends React.Component<MainViewProps> {
                                 <Button component={Link} to='/drinks' variant="contained" color="primary">
                                     Drinks Menu
                             </Button>
-                                <Grid item>
-                                    <Button component={Link} to='/cocktails' variant="contained" color="primary">
-                                        Cocktails Menu
+                            </Grid>
+                            <Grid item>
+                                <Button component={Link} to='/cocktails' variant="contained" color="primary">
+                                    Cocktails Menu
                             </Button>
-                                    <Grid item>
-                                        <Button component={Link} to='/lunch' variant="contained" color="primary">
-                                            Lunch Menu
+                            </Grid>
+                            <Grid item>
+                                <Button component={Link} to='/lunch' variant="contained" color="primary">
+                                    Lunch Menu
                             </Button>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                            <Grid container direction="row" spacing={4}>
+                                {FOLDERS.map(currentFolder => {
+                                    return <Grid item>
+                                        <FolderComponent folderName={currentFolder.name}>
+                                            <img className="folderImage" draggable="false" src={currentFolder.iconSrc} alt={currentFolder.name} />
+                                        </FolderComponent>
                                     </Grid>
+                                })}
+                                <Grid item>
+                                    <FolderComponent folderName='Trash'>
+                                        <img className="folderImage" draggable="false" src='TrashIcon.png' alt='Trash' />
+                                    </FolderComponent>
                                 </Grid>
                                 <Grid item>
-                                    <Grid container direction="row" spacing={4}>
-                                        {FOLDERS.map(currentFolder => {
-                                            return <Grid item>
-                                                <FolderComponent folderName={currentFolder.name}>
-                                                    <img className="folderImage" draggable="false" src={currentFolder.iconSrc} alt={currentFolder.name} />
-                                                </FolderComponent>
-                                            </Grid>
-                                        })}
-                                        <Grid item>
-                                            <FolderComponent folderName='Trash'>
-                                                <img className="folderImage" draggable="false" src='TrashIcon.png' alt='Trash' />
-                                            </FolderComponent>
-                                        </Grid>
-                                        <Grid item>
-                                            <FolderComponent folderName='Finder'>
-                                                <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
-                                            </FolderComponent>
-                                        </Grid>
-                                    </Grid>
-
+                                    <FolderComponent folderName='Finder'>
+                                        <img className="folderImage" draggable="false" src='FinderIcon.png' alt='Finder' />
+                                    </FolderComponent>
                                 </Grid>
                             </Grid>
                         </Grid>
+                    </Grid>
+                </Grid>
             </div>
         )
     }
 }
 const mapStateToProps = (state: PreedaApplicationState) => {
     return {
-                        windowState: state.windowState
+        windowState: state.windowState
     }
 }
 
-export default connect(mapStateToProps, {setWindowState})(MainView);
+export default connect(mapStateToProps, { setWindowState })(MainView);

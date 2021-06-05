@@ -28,7 +28,7 @@
     font-size: 9px;
     text-align: center;
     text-transform: uppercase;
-    font-family: "SF Pro";
+    font-family: "Helvetica";
     font-weight: 700;
     color: rgb(255, 255, 255);
     text-shadow: 0 0 1px #fff, 0 0 7px #fff, 0 0 7px hsl(0deg 0% 100% / 30%);
@@ -67,10 +67,10 @@
     font-size: 12px;
     text-align: center;
     text-transform: uppercase;
-    font-family: "SF Pro";
+    font-family: "Helvetica";
     font-weight: 700;
     color: rgb(255, 255, 255);
-    text-shadow: 0 0 2px #fff, 0 0 7px #fff, 0 0 8px hsl(0deg 0% 100% / 30%);
+    text-shadow: 0 0 1px #fff, 0 0 7px #fff, 0 0 8px hsl(0deg 0% 100% / 30%);
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
   }
 }
