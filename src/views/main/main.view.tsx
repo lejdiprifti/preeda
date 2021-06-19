@@ -9,8 +9,9 @@ import { FOLDERS } from "../../constants/data";
 import { WindowStatesEnum } from "../../models/enums/window.states";
 import { setWindowState } from "../../store/actions";
 import { PreedaApplicationState } from "../../store/reducers";
-import {SlideshowComponent} from "../../components/slideshow/SlideshowComponent";
+import { SlideshowComponent } from "../../components/slideshow/SlideshowComponent";
 import './main.view.css';
+import Draggable from "react-draggable";
 
 interface MainViewProps {
     windowState: WindowStatesEnum[],
@@ -24,11 +25,10 @@ class MainView extends React.Component<MainViewProps> {
     render() {
         return (
             <div id="mainBodyContainer">
+                {this.props.windowState.includes(WindowStatesEnum.FINDER_OPENED) &&
+                    <FinderComponent data={FOLDERS} />}
+                {this.props.windowState.includes(WindowStatesEnum.VIDEO_OPENED) && <SlideshowComponent></SlideshowComponent>}
                 <Grid container direction="row" alignItems="flex-start">
-                    {this.props.windowState.includes(WindowStatesEnum.FINDER_OPENED)  &&
-                        <Grid item><FinderComponent data={FOLDERS} /> </Grid>}
-                    {this.props.windowState.includes(WindowStatesEnum.VIDEO_OPENED) && <SlideshowComponent></SlideshowComponent>}
-                    
                     <Grid item>
                         <img className="addressImg" src='address.png' alt="address" />
                     </Grid>
@@ -37,22 +37,22 @@ class MainView extends React.Component<MainViewProps> {
                             <Grid item>
                                 <Button component={Link} to='/food' variant="contained" color="primary">
                                     Food Menu
-                            </Button>
+                                </Button>
                             </Grid>
                             <Grid item>
                                 <Button component={Link} to='/drinks' variant="contained" color="primary">
                                     Drinks Menu
-                            </Button>
+                                </Button>
                             </Grid>
                             <Grid item>
                                 <Button component={Link} to='/cocktails' variant="contained" color="primary">
                                     Cocktails Menu
-                            </Button>
+                                </Button>
                             </Grid>
                             <Grid item>
                                 <Button component={Link} to='/lunch' variant="contained" color="primary">
                                     Lunch Menu
-                            </Button>
+                                </Button>
                             </Grid>
                         </Grid>
                         <Grid item>
@@ -75,10 +75,10 @@ class MainView extends React.Component<MainViewProps> {
                                     </FolderComponent>
                                 </Grid>
                             </Grid>
-                            <br/>
-                            {this.props.windowState.includes(WindowStatesEnum.VIDEO_SIZED) && <Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Preeda' /></Grid>}
-                            <br/>
-                            {this.props.windowState.includes(WindowStatesEnum.FINDER_SIZED) && <Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Archive' /></Grid>}
+                            <br />
+                            {this.props.windowState.includes(WindowStatesEnum.VIDEO_SIZED) && <Draggable><Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Preeda' /></Grid></Draggable>}
+                            <br />
+                            {this.props.windowState.includes(WindowStatesEnum.FINDER_SIZED) && <Draggable><Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Archive' /></Grid></Draggable>}
                         </Grid>
                     </Grid>
                 </Grid>

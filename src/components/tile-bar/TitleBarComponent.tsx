@@ -20,11 +20,11 @@ class TitleBarComponent extends React.Component<TitleBarComponentProps> {
     handleCloseButton() {
         switch (this.props.title) {
             case "Archive":
-                 this.props.removeWindowState(WindowStatesEnum.FINDER_OPENED);
-                 break;
+                this.props.removeWindowState(WindowStatesEnum.FINDER_OPENED);
+                break;
             case "Preeda":
-                 this.props.removeWindowState(WindowStatesEnum.VIDEO_OPENED);
-                 break;
+                this.props.removeWindowState(WindowStatesEnum.VIDEO_OPENED);
+                break;
             default:
         }
     }
@@ -56,13 +56,13 @@ class TitleBarComponent extends React.Component<TitleBarComponentProps> {
             default:
         }
     }
-// ${this.props.windowState === WindowStatesEnum.VIDEO_SIZED || this.props.windowState === WindowStatesEnum.FINDER_SIZED ? 'sized' : ''}
+    // ${this.props.windowState === WindowStatesEnum.VIDEO_SIZED || this.props.windowState === WindowStatesEnum.FINDER_SIZED ? 'sized' : ''}
     render() {
         return (
             <div className={`title-bar`}>
                 <div className="title-bar-controls">
                     <button title="Close window" className="title-bar-control red" onTouchStart={() => { this.handleCloseButton() }} onClick={() => { this.handleCloseButton() }}></button>
-                    <button title="Minimize window" className="title-bar-control yellow" onTouchStart={() => { this.handleMinimizeWindow()}} onClick={() => { this.handleMinimizeWindow() }}></button>
+                    <button title="Minimize window" className="title-bar-control yellow" onTouchStart={() => { this.handleMinimizeWindow() }} onClick={() => { this.handleMinimizeWindow() }}></button>
                     <button title="Maximize window" className="title-bar-control green" onTouchStart={() => { this.handleMaximizeWindow() }} onClick={() => { this.handleMaximizeWindow() }}></button>
                 </div>
                 <div className="title-bar-text">{this.props.title}</div>
