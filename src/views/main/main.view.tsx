@@ -54,7 +54,7 @@ class MainView extends React.Component<MainViewProps> {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <Grid container direction="row" spacing={4}>
+                            <Grid container direction="row" justify="center" spacing={4}>
                                 {FOLDERS.map(currentFolder => {
                                     return <Grid item>
                                         <FolderComponent folderName={currentFolder.name}>

@@ -61,6 +61,8 @@
   border-right: 1px solid #d9d9d9;
   height: 100%;
   -webkit-overflow-scrolling: touch;
+  height: 200px;
+   overflow-y: scroll;
 }
 
 .sidebar {
@@ -135,7 +137,7 @@
 }
 
 .file-image {
-  max-width: 85%;
+  max-width: 75%;
 }
 
 .row {
@@ -155,11 +157,10 @@
 .file-preview {
   width: 100%;
   display: flex;
-  height: 375px;
   padding: 15px 15px 30px;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -243,26 +244,40 @@
   .file-preview {
     width: 100%;
     display: flex;
-    height: 175px;
-    padding: 15px 15px 30px;
+    padding: 15px 15px 0px;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
+  .finder-pane {
+  border-right: 1px solid #d9d9d9;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  height: 270px;
+   overflow-y: scroll;
+}
 }
 
 @media screen and (min-width: 960px) {
   .file-preview {
     width: 100%;
     display: flex;
-    height: 325px;
-    padding: 15px 15px 30px;
+    padding: 15px 15px 0px;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
+
+  .finder-pane {
+  border-right: 1px solid #d9d9d9;
+  -webkit-overflow-scrolling: touch;
+  height: 420px;
+  overflow-y: scroll;
+}
+
+.file-image {
+  max-width: 55%;
+}
 }

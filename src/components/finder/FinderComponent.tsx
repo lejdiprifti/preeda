@@ -135,7 +135,7 @@ class FinderComponent extends React.Component<FinderComponentProps, FinderCompon
                                                     </div>
                                                     <div className="file-info">
                                                         <div className="file-name">{this.state.selectedImage?.title}</div>
-                                                        {/* <div className="file-subtitle">JPG image - 4.6 MB</div> */}
+                                                        <div className="file-subtitle">{this.state.selectedImage?.description}</div>
                                                     </div>
                                                     {/* <div className="file-details">
                                                         <div className="file-detail">
