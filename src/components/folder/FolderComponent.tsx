@@ -37,7 +37,7 @@ class FolderComponent extends React.Component<FolderComponentPropsWithChildren, 
             document.getElementById('root')!.innerHTML = '';
         } else {
             this.props.selectFolder(this.props.folderName);
-            this.props.setWindowState(WindowStatesEnum.OPENED)
+            this.props.setWindowState(WindowStatesEnum.FINDER_OPENED)
         }
     }
 

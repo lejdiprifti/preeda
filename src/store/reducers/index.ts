@@ -3,7 +3,7 @@ import { WindowStatesEnum } from "../../models/enums/window.states";
 import { handleFolderReducer } from "./folder.reducers";
 import { handleWindowStateReducer } from "./window.reducers";
 export interface PreedaApplicationState {
-  windowState: WindowStatesEnum;
+  windowState: WindowStatesEnum[];
   selectedFolder: string;
 }
 

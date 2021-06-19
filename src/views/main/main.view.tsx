@@ -9,10 +9,11 @@ import { FOLDERS } from "../../constants/data";
 import { WindowStatesEnum } from "../../models/enums/window.states";
 import { setWindowState } from "../../store/actions";
 import { PreedaApplicationState } from "../../store/reducers";
+import {SlideshowComponent} from "../../components/slideshow/SlideshowComponent";
 import './main.view.css';
 
 interface MainViewProps {
-    windowState: WindowStatesEnum,
+    windowState: WindowStatesEnum[],
     setWindowState: typeof setWindowState
 }
 class MainView extends React.Component<MainViewProps> {
@@ -24,9 +25,10 @@ class MainView extends React.Component<MainViewProps> {
         return (
             <div id="mainBodyContainer">
                 <Grid container direction="row" alignItems="flex-start">
-                    {this.props.windowState === WindowStatesEnum.OPENED &&
+                    {this.props.windowState.includes(WindowStatesEnum.FINDER_OPENED)  &&
                         <Grid item><FinderComponent data={FOLDERS} /> </Grid>}
-                    {this.props.windowState === WindowStatesEnum.SIZED && <Grid item><TitleBarComponent title='Archive' /></Grid>}
+                    {this.props.windowState.includes(WindowStatesEnum.VIDEO_OPENED) && <SlideshowComponent></SlideshowComponent>}
+                    
                     <Grid item>
                         <img className="addressImg" src='address.png' alt="address" />
                     </Grid>
@@ -73,6 +75,10 @@ class MainView extends React.Component<MainViewProps> {
                                     </FolderComponent>
                                 </Grid>
                             </Grid>
+                            <br/>
+                            {this.props.windowState.includes(WindowStatesEnum.VIDEO_SIZED) && <Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Preeda' /></Grid>}
+                            <br/>
+                            {this.props.windowState.includes(WindowStatesEnum.FINDER_SIZED) && <Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Archive' /></Grid>}
                         </Grid>
                     </Grid>
                 </Grid>

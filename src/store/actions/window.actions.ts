@@ -5,7 +5,13 @@ export interface SetWindowStateAction {
   type: WindowActionsEnum.SET_STATE;
   payload: WindowStatesEnum;
 }
-export type WindowGenericAction = SetWindowStateAction;
+
+export interface RemoveWindowStateAction {
+  type: WindowActionsEnum.REMOVE_STATE;
+  payload: WindowStatesEnum;
+}
+
+export type WindowGenericAction = SetWindowStateAction | RemoveWindowStateAction;
 
 export const setWindowState = (
   windowState: WindowStatesEnum
@@ -15,3 +21,12 @@ export const setWindowState = (
     payload: windowState,
   };
 };
+
+export const removeWindowState = (
+  windowState: WindowStatesEnum
+): RemoveWindowStateAction => {
+  return {
+    type: WindowActionsEnum.REMOVE_STATE,
+    payload: windowState
+  }
+} 
