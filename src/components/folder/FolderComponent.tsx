@@ -2,14 +2,15 @@ import React, { PropsWithChildren } from "react";
 import Draggable from "react-draggable";
 import { connect } from "react-redux";
 import { WindowStatesEnum } from "../../models/enums/window.states";
-import { setWindowState } from "../../store/actions";
+import { setWindowState, removeWindowState } from "../../store/actions";
 import { selectFolder } from "../../store/actions/folder.actions";
 import './FolderComponent.css';
 
 interface FolderComponentProps {
     folderName: string,
     selectFolder: typeof selectFolder,
-    setWindowState: typeof setWindowState
+    setWindowState: typeof setWindowState,
+    removeWindowState: typeof removeWindowState
 }
 
 const DESKTOP_ITEM_CLASSNAME = 'desktop-item';
@@ -37,7 +38,8 @@ class FolderComponent extends React.Component<FolderComponentPropsWithChildren, 
             document.getElementById('root')!.innerHTML = '';
         } else {
             this.props.selectFolder(this.props.folderName);
-            this.props.setWindowState(WindowStatesEnum.FINDER_OPENED)
+            this.props.setWindowState(WindowStatesEnum.FINDER_OPENED);
+            this.props.removeWindowState(WindowStatesEnum.FINDER_SIZED);
         }
     }
 
@@ -72,4 +74,4 @@ class FolderComponent extends React.Component<FolderComponentPropsWithChildren, 
     }
 }
 
-export default connect(null, { setWindowState, selectFolder })(FolderComponent);
+export default connect(null, { setWindowState, selectFolder, removeWindowState })(FolderComponent);

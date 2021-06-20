@@ -25,9 +25,9 @@ class MainView extends React.Component<MainViewProps> {
     render() {
         return (
             <div id="mainBodyContainer">
+                {this.props.windowState.includes(WindowStatesEnum.VIDEO_OPENED) && <SlideshowComponent></SlideshowComponent>}
                 {this.props.windowState.includes(WindowStatesEnum.FINDER_OPENED) &&
                     <FinderComponent data={FOLDERS} />}
-                {this.props.windowState.includes(WindowStatesEnum.VIDEO_OPENED) && <SlideshowComponent></SlideshowComponent>}
                 <Grid container direction="row" alignItems="flex-start">
                     <Grid item>
                         <img className="addressImg" src='address.png' alt="address" />
@@ -57,7 +57,7 @@ class MainView extends React.Component<MainViewProps> {
                         </Grid>
                         <Grid item>
                             <Grid container direction="row" justify="center" spacing={4}>
-                                {FOLDERS.map(currentFolder => {
+                                {FOLDERS.filter(folder => folder.displayFolderIcon == true).map(currentFolder => {
                                     return <Grid item>
                                         <FolderComponent folderName={currentFolder.name}>
                                             <img className="folderImage" draggable="false" src={currentFolder.iconSrc} alt={currentFolder.name} />
@@ -76,9 +76,9 @@ class MainView extends React.Component<MainViewProps> {
                                 </Grid>
                             </Grid>
                             <br />
-                            {this.props.windowState.includes(WindowStatesEnum.VIDEO_SIZED) && <Draggable><Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Preeda' /></Grid></Draggable>}
-                            <br />
                             {this.props.windowState.includes(WindowStatesEnum.FINDER_SIZED) && <Draggable><Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Archive' /></Grid></Draggable>}
+                            <br />
+                            {this.props.windowState.includes(WindowStatesEnum.VIDEO_SIZED) && <Draggable><Grid item xl={4} lg={6} md={6} xs={8}><TitleBarComponent title='Preeda' /></Grid></Draggable>}
                         </Grid>
                     </Grid>
                 </Grid>

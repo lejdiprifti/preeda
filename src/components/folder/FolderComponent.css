@@ -70,7 +70,8 @@
     font-family: "Helvetica";
     font-weight: 700;
     color: rgb(255, 255, 255);
-    text-shadow: 0 0 1px #fff, 0 0 7px #fff, 0 0 8px hsl(0deg 0% 100% / 30%);
+    text-shadow: 0 0 1px #d88ae9, 0 0 7px #d88ae9,
+      0 0 8px hsl(0deg 0% 100% / 30%);
     transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
   }
 }

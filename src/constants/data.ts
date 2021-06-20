@@ -4,6 +4,7 @@ import { GENERIC_FOLDER } from "./paths";
 export const FOLDERS: Folder[] = [
   {
     name: "Drinks",
+    displayFolderIcon: true,
     images: [
       {
         src: "assets/drinks/Amphai.jpg",
@@ -99,6 +100,7 @@ export const FOLDERS: Folder[] = [
   },
   {
     name: "Food",
+    displayFolderIcon: true,
     images: [
       {
         src: "assets/food/Papaya Pile 1.jpg",
@@ -189,6 +191,19 @@ export const FOLDERS: Folder[] = [
         title: "Wicked Wings 2",
         description:
           "Thai style crispy chicken wings with either special sweet chili glaze (very spicy), or garlic-pepper glaze (medium spicy) or sweet and sour sauce",
+      },
+    ],
+    iconSrc: GENERIC_FOLDER,
+  },
+  {
+    name: "Author",
+    displayFolderIcon: false,
+    images: [
+      {
+        src: "assets/author/lejdi-prifti-work.png",
+        title: "Developed by Lejdi Prifti",
+        description:
+          "Contact lejdipriftidigitalservices@gmail.com or visit lejdiprifti.web.app for more information",
       },
     ],
     iconSrc: GENERIC_FOLDER,
