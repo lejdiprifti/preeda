@@ -195,17 +195,4 @@ export const FOLDERS: Folder[] = [
     ],
     iconSrc: GENERIC_FOLDER,
   },
-  {
-    name: "Author",
-    displayFolderIcon: false,
-    images: [
-      {
-        src: "assets/author/lejdi-prifti-work.png",
-        title: "Developed by Lejdi Prifti",
-        description:
-          "Contact lejdipriftidigitalservices@gmail.com or visit lejdiprifti.web.app for more information",
-      },
-    ],
-    iconSrc: GENERIC_FOLDER,
-  },
 ];
